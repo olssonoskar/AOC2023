@@ -1,9 +1,9 @@
 class Day01 {
 
-    fun part1() {
-        val lines = InputUtils.getLines("day01.txt")
+    fun part1(): String {
+        val lines = InputUtils().getLines("day01.txt")
         val sum = lines.sumOf { convertNumber(it) }
-        println(sum)
+        return sum.toString()
     }
     fun convertNumber(line: String): Int {
         val num = takeFirstDigit(line) + takeFirstDigit(line.reversed())
@@ -16,10 +16,10 @@ class Day01 {
 
     private val numbers = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
-    fun part2() {
-        val lines = InputUtils.getLines("day01.txt")
+    fun part2(): String {
+        val lines = InputUtils().getLines("day01.txt")
         val sum = lines.sumOf { convertIncludingTextNumber(it) }
-        println(sum)
+        return sum.toString()
     }
 
     private fun convertIncludingTextNumber(input: String): Int {

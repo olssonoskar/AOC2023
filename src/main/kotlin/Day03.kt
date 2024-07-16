@@ -1,15 +1,15 @@
 class Day03 {
 
-    private val input = InputUtils.getLines("day03.txt")
+    private val input = InputUtils().getLines("day03.txt")
     private val partNumbers = mutableListOf<PartNumber>()
     private val gearPositions = mutableSetOf<Point>()
 
-    fun part1() {
+    fun part1(): String {
         parse()
-        println(partNumbers.sumOf { it.actual() })
+        return partNumbers.sumOf { it.actual() }.toString()
     }
 
-    fun part2() {
+    fun part2(): String {
         parse()
         val result = gearPositions.sumOf { gear ->
             val adjacent = partNumbers.filter { it.neighbors.contains(gear) }
@@ -17,7 +17,7 @@ class Day03 {
                 adjacent.first().actual() * adjacent.last().actual()
             else 0
         }
-        println(result)
+        return result.toString()
     }
 
     private fun parse() {

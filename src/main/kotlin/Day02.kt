@@ -1,13 +1,13 @@
 class Day02 {
 
-    fun part1() {
-        val lines = InputUtils.getLines("day02.txt")
+    fun part1(): String {
+        val lines = InputUtils().getLines("day02.txt")
         val limit = Bag(12, 14, 13)
         val sumOfValidGameId =
             lines.filter { maxBag(it.split(":")[1]).valid(limit) }
                 .map { it.split(":")[0] }
                 .sumOf { it.split(" ")[1].toInt() }
-        println(sumOfValidGameId)
+        return sumOfValidGameId.toString()
     }
 
     private fun maxBag(game: String): Bag {
@@ -18,10 +18,10 @@ class Day02 {
             .reduce{first, second -> first.keepMax(second)}
     }
 
-    fun part2() {
-        val lines = InputUtils.getLines("day02.txt")
-        println(lines.map{ maxBag(it.split(":")[1]) }
-            .sumOf { it.powerOf() })
+    fun part2(): String {
+        val lines = InputUtils().getLines("day02.txt")
+        return lines.map{ maxBag(it.split(":")[1]) }
+            .sumOf { it.powerOf() }.toString()
     }
 
     private fun fromSet(set: String): Bag {
