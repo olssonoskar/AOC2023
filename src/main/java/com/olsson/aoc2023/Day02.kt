@@ -1,7 +1,12 @@
+package com.olsson.aoc2023
+
 class Day02 {
 
-    fun part1(): String {
-        val lines = InputUtils().getLines("day02.txt")
+    fun part1() = part1kt()
+    fun part2() = part2kt()
+
+    fun part1kt(input: String = "day02.txt"): String {
+        val lines = InputUtils().getLines(input)
         val limit = Bag(12, 14, 13)
         val sumOfValidGameId =
             lines.filter { maxBag(it.split(":")[1]).valid(limit) }
@@ -18,8 +23,8 @@ class Day02 {
             .reduce{first, second -> first.keepMax(second)}
     }
 
-    fun part2(): String {
-        val lines = InputUtils().getLines("day02.txt")
+    fun part2kt(input: String = "day02.txt"): String {
+        val lines = InputUtils().getLines(input)
         return lines.map{ maxBag(it.split(":")[1]) }
             .sumOf { it.powerOf() }.toString()
     }

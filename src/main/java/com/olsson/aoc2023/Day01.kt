@@ -1,11 +1,18 @@
+package com.olsson.aoc2023
+
 class Day01 {
 
-    fun part1(): String {
-        val lines = InputUtils().getLines("day01.txt")
+    // Convenience as Java cant see Kotlin default args
+    fun part1(): String = part1kt()
+    fun part2(): String = part2kt()
+
+    fun part1kt(input: String = "day01.txt"): String {
+        val lines = InputUtils().getLines(input)
         val sum = lines.sumOf { convertNumber(it) }
         return sum.toString()
     }
-    fun convertNumber(line: String): Int {
+
+    private fun convertNumber(line: String): Int {
         val num = takeFirstDigit(line) + takeFirstDigit(line.reversed())
         return num.toInt()
     }
@@ -16,8 +23,8 @@ class Day01 {
 
     private val numbers = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
-    fun part2(): String {
-        val lines = InputUtils().getLines("day01.txt")
+    fun part2kt(input: String = "day01.txt"): String {
+        val lines = InputUtils().getLines(input)
         val sum = lines.sumOf { convertIncludingTextNumber(it) }
         return sum.toString()
     }
@@ -39,9 +46,4 @@ class Day01 {
 
         return (first + last).toInt()
     }
-}
-
-fun main() {
-    Day01().part1()
-    Day01().part2()
 }

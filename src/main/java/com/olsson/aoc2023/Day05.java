@@ -1,3 +1,4 @@
+package com.olsson.aoc2023;
 
 import java.util.*;
 import java.util.function.Predicate;
@@ -32,7 +33,7 @@ public class Day05 {
         var almanac = parseInput(input);
         var matched = false;
         long lastResult;
-        for(long attempt = 1; attempt <= 100_000_000 && !matched; attempt++) {
+        for(long attempt = 1; attempt <= 30_000_000 && !matched; attempt++) {
             lastResult = convertAllReversed(attempt, almanac, order.reversed());
             if (almanac.hasMatchingSeedRange(lastResult)) {
                 return attempt;

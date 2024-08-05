@@ -1,15 +1,22 @@
+package com.olsson.aoc2023
+
 class Day03 {
 
-    private val input = InputUtils().getLines("day03.txt")
+    private lateinit var initalInput: List<String>
     private val partNumbers = mutableListOf<PartNumber>()
     private val gearPositions = mutableSetOf<Point>()
 
-    fun part1(): String {
+    fun part1() = part1kt()
+    fun part2() = part2kt()
+
+    fun part1kt(input: String = "day03.txt"): String {
+        initalInput = InputUtils().getLines(input)
         parse()
         return partNumbers.sumOf { it.actual() }.toString()
     }
 
-    fun part2(): String {
+    fun part2kt(input: String = "day03.txt"): String {
+        initalInput = InputUtils().getLines(input)
         parse()
         val result = gearPositions.sumOf { gear ->
             val adjacent = partNumbers.filter { it.neighbors.contains(gear) }
@@ -21,7 +28,7 @@ class Day03 {
     }
 
     private fun parse() {
-        input.forEachIndexed {y, row ->
+        initalInput.forEachIndexed {y, row ->
             var partNumber = PartNumber()
             row.forEachIndexed{x, someChar ->
                 // While we work on a number, check neighbors at index and append digit
@@ -58,7 +65,7 @@ class Day03 {
     // Check input for position, return dot if out of bounds
     private fun getFromInput(point: Point): Char {
         return try {
-            input[point.y][point.x]
+            initalInput[point.y][point.x]
         } catch (ex: IndexOutOfBoundsException) {
             '.'
         }

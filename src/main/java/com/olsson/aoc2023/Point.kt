@@ -1,3 +1,5 @@
+package com.olsson.aoc2023
+
 data class Point(val x: Int, val y: Int) {
 
     fun neighbors(): Set<Point> =

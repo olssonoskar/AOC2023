@@ -1,9 +1,11 @@
+package com.olsson.aoc2023
+
 import java.io.File
 
 class InputUtils {
 
     private fun getFromResources(file : String) : File {
-        val uri = InputUtils::class.java.getResource(file)?.toURI()
+        val uri = InputUtils::class.java.getResource("/$file")?.toURI()
                 ?: throw IllegalArgumentException("File was not found")
         return File(uri)
     }
