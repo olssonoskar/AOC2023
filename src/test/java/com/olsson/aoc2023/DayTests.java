@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DayTests {
+class DayTests {
 
     @Test
     void Day1() {
@@ -35,5 +35,13 @@ public class DayTests {
         assertEquals(35L, new Day05().part1("day5.txt"));
         assertEquals(46L, new Day05().part2("day5.txt"));
     }
+
+    @Test
+    void Day6() {
+        assertEquals(288, new Day06().part1kt("day6.txt"));
+        assertEquals(71503, new Day06().part2kt(71530, 940200));
+    }
+
+
 
 }

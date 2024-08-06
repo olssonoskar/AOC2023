@@ -21,7 +21,7 @@ public class Day04 {
         var cards = format(input);
         return cards.stream()
                 .map(ScratchCard::matches)
-                .map(score -> (int) Math.pow(2, score - 1))
+                .map(score -> (int) Math.pow(2, score - 1d))
                 .reduce(Integer::sum)
                 .orElse(0);
     }
@@ -32,9 +32,8 @@ public class Day04 {
         cards.forEach(card -> {
             var currentCardCopies = scratchCards.getOrDefault(card.card, 1);
             // Add held copies for current card to the count as each has the same matches
-            card.cardWinnings().forEach(wonCard -> {
-                scratchCards.put(wonCard, scratchCards.getOrDefault(wonCard, 1) + currentCardCopies);
-            });
+            card.cardWinnings().forEach(wonCard ->
+                    scratchCards.put(wonCard, scratchCards.getOrDefault(wonCard, 1) + currentCardCopies));
         });
         return IntStream.range(1, input.size() + 1)
                 .map(index -> scratchCards.getOrDefault(index, 1))

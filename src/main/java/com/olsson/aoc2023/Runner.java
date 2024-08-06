@@ -16,6 +16,7 @@ public class Runner {
                 case "3" -> List.of(new Day03().part1(), new Day03().part2());
                 case "4" -> List.of(new Day04().part1(), new Day04().part2());
                 case "5" -> List.of(new Day05().part1(), new Day05().part2());
+                case "6" -> List.of(new Day06().part1(), new Day06().part2());
                 case "stop", "exit" -> {
                     running = false;
                     yield "Stopping";
