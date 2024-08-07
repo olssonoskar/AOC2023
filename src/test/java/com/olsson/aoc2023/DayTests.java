@@ -42,6 +42,12 @@ class DayTests {
         assertEquals(71503, new Day06().part2kt(71530, 940200));
     }
 
+    @Test
+    void Day7() {
+        assertEquals(6440, new Day07().part1kt("day7.txt"));
+        assertEquals(5905, new Day07().part2kt("day7.txt"));
+    }
+
 
 
 }
