@@ -21,8 +21,8 @@ public class Day08 {
     }
 
     /**
-     * Had to look up the 'answer' and didn't quite get the reasoning behind this at first, but the point is to 're-walk' shorter
-     * paths until they all end simultaneously, so the paths are actually 'looping'
+     * Had to look up the 'answer' as I didn't quite get the reasoning behind this at first, but the point is to 're-walk' shorter
+     * paths until they all end simultaneously, so this means the paths are actually 'looping' (as you just start over from the start)
      * If we find the length of each path and find the least common multiple between all the paths, that is the answer
      * since this will be the first time they all end up on the goal simultaneously
      */
@@ -37,11 +37,11 @@ public class Day08 {
                 .orElse(-1L);
     }
 
-    private Long walkNodes(String pattern, String node, Map<String, Node> nodeMap, GoalCheck goalCheck) {
-        long steps = 0;
+    private long walkNodes(String pattern, String node, Map<String, Node> nodeMap, GoalCheck notReached) {
+        int steps = 0;
         String current = node;
-        while (goalCheck.evaluate(current) && steps < Integer.MAX_VALUE) {
-            var direction = pattern.charAt((int)steps % pattern.length());
+        while (notReached.evaluate(current)) {
+            var direction = pattern.charAt(steps % pattern.length());
             current = step(current, direction, nodeMap);
             steps++;
         }

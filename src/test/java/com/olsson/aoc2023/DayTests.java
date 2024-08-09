@@ -54,4 +54,19 @@ class DayTests {
         assertEquals(6, new Day08().part2("day8-2.txt"));
     }
 
+    @Test
+    void Day9() {
+        assertEquals(114, new Day09().part1("day9.txt"));
+        assertEquals(2, new Day09().part2("day9.txt"));
+    }
+
+    @Test
+    void Day10() {
+        assertEquals(4, new Day10().part1kt("day10.txt"));
+        assertEquals(8, new Day10().part1kt("day10_complex.txt"));
+        assertEquals(4, new Day10().part2kt("day10_closed.txt"));
+        assertEquals(8, new Day10().part2kt("day10_randombits.txt"));
+        assertEquals(10, new Day10().part2kt("day10_lastex.txt"));
+    }
+
 }
