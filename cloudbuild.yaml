@@ -2,3 +2,6 @@ steps:
   - name: maven:3.9.9-eclipse-temurin-22-alpine
     entrypoint: mvn
     args: ['test']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
