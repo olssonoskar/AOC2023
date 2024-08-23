@@ -16,6 +16,7 @@ class Day10 {
             current = nextPipe(current, pipe2DMap)
             count += 1
         }
+        
         return round(count.toDouble() / 2)
     }
 
@@ -49,8 +50,8 @@ class Day10 {
     // Iterate all points not in the loop and check if they are inside
     private fun rayCastAll(pipe2DMap: Pipe2DMap): Set<Point> {
         val inside = mutableSetOf<Point>()
-        for(i in 0 until pipe2DMap.map.size) {
-            for(j in 0 until pipe2DMap.map.first().size) {
+        for(i in 0..<pipe2DMap.map.size) {
+            for(j in 0 ..< pipe2DMap.map.first().size) {
                 val p = Point(j, i)
                 if (pipe2DMap.loop.contains(p)) {
                     continue

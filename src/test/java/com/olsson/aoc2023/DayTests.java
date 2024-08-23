@@ -69,4 +69,10 @@ class DayTests {
         assertEquals(10, new Day10().part2kt("day10_lastex.txt"));
     }
 
+    @Test
+    void Day11() {
+        assertEquals(374, new Day11().part1("day11.txt"));
+        assertEquals(8410, new Day11().part2("day11.txt", 100));
+    }
+
 }

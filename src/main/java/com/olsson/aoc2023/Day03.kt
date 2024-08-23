@@ -86,8 +86,3 @@ class Day03 {
     }
 
 }
-
-fun main() {
-    Day03().part1()
-    Day03().part2()
-}
